@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Ejemplo de URLs</title>
+<title>Éxito de redirección 1</title>
 </head>
 <body>
-	<h2>Ejemplo de uso de URLs con Struts (Uso de 1 Query String)</h2>
-	Nombre completo: ${valor1}
+	<h2>Se alcanzó exitosamente esta página tras una redirección!!</h2>
 </body>
 </html>

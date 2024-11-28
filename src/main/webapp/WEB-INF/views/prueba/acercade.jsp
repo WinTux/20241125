@@ -7,6 +7,8 @@
 <title>Acerca de nosotros</title>
 </head>
 <body>
-<h2>Información relevante sobre nuestra institucíon.</h2>
+	<h2>Información relevante sobre nuestra institucíon. (Uso de 2 Query Strings)</h2>
+	Nro. de puerta: ${valor2}<br>
+	Calle/Avenida: ${valor3}
 </body>
 </html>

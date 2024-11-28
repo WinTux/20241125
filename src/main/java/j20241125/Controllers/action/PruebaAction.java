@@ -22,6 +22,28 @@ public class PruebaAction extends ActionSupport{
 	private Producto prod;
 	
 	private List<Producto> prods;
+	// Para envío de parámetros desde URL
+	private String valor1;
+	public String getValor1() {
+		return valor1;
+	}
+	public void setValor1(String valor1) {
+		this.valor1 = valor1;
+	}
+	public int getValor2() {
+		return valor2;
+	}
+	public void setValor2(int valor2) {
+		this.valor2 = valor2;
+	}
+	public String getValor3() {
+		return valor3;
+	}
+	public void setValor3(String valor3) {
+		this.valor3 = valor3;
+	}
+	private int valor2;
+	private String valor3;
 	
 	public List<Producto> getProds() {
 		return prods;
@@ -88,17 +110,20 @@ public class PruebaAction extends ActionSupport{
 		return SUCCESS;
 	}
 	@Action(value="ejemplourl", results= {
-			@Result(name=SUCCESS, location="/WEB-INF/views/prueba/ejurl.jsp")
+			@Result(name=SUCCESS, location="/WEB-INF/views/prueba/ejemplourl.jsp")
 	})
 	public String ejurl() {
-		
+		// Método usado para el ejemplo de paráetros por URL (Query strings)
+		System.out.println("Valor 1: "+ valor1);
 		return SUCCESS;
 	}
-	@Action(value="acercede", results= {
+	@Action(value="acercade", results= {
 			@Result(name=SUCCESS, location="/WEB-INF/views/prueba/acercade.jsp")
 	})
 	public String acercade() {
-		
+		// Método usado para el ejemplo de paráetros por URL (Query strings)
+		System.out.println("Valor 2: "+ valor2);
+		System.out.println("Valor 3: "+ valor3);
 		return SUCCESS;
 	}
 	@Action(value="contacto", results= {
@@ -106,6 +131,36 @@ public class PruebaAction extends ActionSupport{
 	})
 	public String contacto() {
 		
+		return SUCCESS;
+	}
+	
+	@Action(value="redireccion", results= {
+			@Result(name=SUCCESS, type="redirectAction", params={"namespace","/prueba","actionName","exitoRedirec1"})
+	})
+	public String paraRedireccion() {
+		
+		return SUCCESS;
+	}
+	@Action(value="exitoRedirec1", results= {
+			@Result(name=SUCCESS, location="/WEB-INF/views/prueba/exito1.jsp")
+	})
+	public String exito1() {
+		
+		return SUCCESS;
+	}
+	@Action(value="redireccion2", results= {
+			@Result(name=SUCCESS, type="redirectAction", params={"namespace","/prueba","actionName","exitoRedirec2", "valor1","${valor1}", "valor2","${valor2}"})
+	})
+	public String paraRedireccion2() {
+		
+		return SUCCESS;
+	}
+	@Action(value="exitoRedirec2", results= {
+			@Result(name=SUCCESS, location="/WEB-INF/views/prueba/exito2.jsp")
+	})
+	public String exito2() {
+		System.out.println("valor 1: "+valor1);
+		System.out.println("valor 2: "+valor2);
 		return SUCCESS;
 	}
 }
